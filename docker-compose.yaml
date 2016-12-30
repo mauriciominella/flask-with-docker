@@ -1,0 +1,12 @@
+web:
+  build: .
+  command: app.py
+  environment:
+    MONGO_DB_PORT: 27017
+  ports:
+    - "5000:5000"
+  links:
+    - db
+
+db:
+  image: mongo:3.0.2
