@@ -11,8 +11,10 @@ db = client.testdb
 
 @app.route('/')
 def hello_world():
-    connections_dict = db.command("serverStatus")["connections"]
-    return connections_dict
+    buildinfo = db.command("buildinfo")
+    # return connections_dict
+    print(buildinfo['version'])
+    return 'Flash with mongo :D'
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
